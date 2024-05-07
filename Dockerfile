@@ -1,8 +1,9 @@
-FROM ubuntu:24.04
+FROM ubuntu:23.10
 
 ARG RUNNER_VERSION="2.316.1"
 
-RUN apt -qq update \
+RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections \
+    && apt -qq update \
     && apt install -y --no-install-recommends ca-certificates curl libicu-dev jq buildah podman jq libarchive-tools gnupg skopeo
 
 USER ubuntu
