@@ -1,6 +1,6 @@
 FROM ubuntu:23.10
 
-ARG RUNNER_VERSION="2.315.0"
+ARG RUNNER_VERSION="2.316.1"
 
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections \
     && apt -qq update \
